@@ -1,2 +1,2 @@
-# Python-Programs---Hacker-Rank
+# Python-Programs - Hacker-Rank
 Performed programs , and assignments in hacker rank python cource
