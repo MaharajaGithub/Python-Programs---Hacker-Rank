@@ -1,0 +1,30 @@
+# TASK :
+
+# Function Description :
+# Complete the merge_the_tools function in the editor below.
+# merge_the_tools has the following parameters:
+
+  # string s: the string to analyze
+  # int k: the size of substrings to analyze
+
+# Prints
+# Print each subsequence on a new line. There will be n/k of them. No return value is expected.
+
+# Input Format
+# The first line contains a single string,S.
+# The second line contains an integer,K, the length of each substring.
+
+
+
+# SOLN:
+
+
+def merge_the_tools(string, k):
+    for i in range(0, len(string), k):
+        uniq = ''
+        for c in string[i : i+k]:
+            if (c not in uniq):
+                uniq+=c
+        print(uniq)
+        
+merge_the_tools("AABCAAADA",3)
