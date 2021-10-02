@@ -1,0 +1,38 @@
+# TASK :
+
+# Given an integer,n, print the following values for each integer i from 1 to n:
+
+# 1.Decimal
+# 2.Octal
+# 3.Hexadecimal (capitalized)
+# 4.Binary
+
+# Function Description
+# Complete the print_formatted function in the editor below.
+# print_formatted has the following parameters:
+
+# int number: the maximum value to print
+
+# Prints
+# The four values must be printed on a single line in the order specified above for each i from 1 to number. 
+# Each value should be space-padded to match the width of the binary value of number and the values should be separated by a single space.
+
+
+# SOLN :
+
+def print_formatted(n):
+    width = len("{0:b}".format(n))
+    for i in range(1,n+1):
+        print("{0:{width}d} {0:{width}o} {0:{width}X} {0:{width}b}".format(i, width=width))
+
+print_formatted(9)
+
+
+              #OR
+              
+def print_formatted(n):
+    for i in range(1,n + 1):
+        pad = n.bit_length()
+        print(f'{i:{pad}d} {i:{pad}o} {i:{pad}X} {i:{pad}b}')
+        
+print_formatted(7)
