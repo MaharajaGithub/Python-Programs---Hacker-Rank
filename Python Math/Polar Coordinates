@@ -1,0 +1,29 @@
+# Polar coordinates are an alternative way of representing Cartesian coordinates or Complex Numbers.
+
+# TASK :
+# You are given a complex Z. Your task is to convert it to polar coordinates.
+
+# Input Format
+# A single line containing the complex number Z. 
+# Note: complex() function can be used in python to convert the input as a complex number.
+
+# Output Format
+# Output two lines:
+# The first line should contain the value of r.
+# The second line should contain the value of φ.
+
+# SOLN :
+
+import cmath as c
+r = complex(input().strip())
+print(c.polar(r)[0])
+print(c.polar(r)[1])
+
+
+                    # OR
+
+ import cmath
+a = input()
+b = cmath.phase(complex(a))
+c = abs(complex(a))
+print("{0}\n{1}".format(c,b))
