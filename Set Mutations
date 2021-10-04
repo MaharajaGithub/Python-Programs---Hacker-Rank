@@ -1,0 +1,57 @@
+# We can use the following operations to create mutations to a set:
+# .update() or |=
+# .intersection_update() or &=
+# .difference_update() or -=
+# .symmetric_difference_update() or ^=
+
+# TASK
+# You are given a set A and N number of other sets. These N number of sets have to perform some specific mutation operations on set A.
+# Your task is to execute those operations and print the sum of elements from set A.
+
+# Input Format
+# The first line contains the number of elements in set A.
+# The second line contains the space separated list of elements in set A.
+# The third line contains integer N, the number of other sets.
+# The next 2*N lines are divided into N parts containing two lines each.
+# The first line of each part contains the space separated entries of the operation name and the length of the other set.
+# The second line of each part contains space separated list of elements in the other set.\
+
+# Output Format
+# Output the sum of elements in set A.
+
+# SOLN :
+
+s = int(input())
+s1 = set(map(int, input().split()))
+N = int(input())
+
+for i in range(N):
+    cmd, x = input().split()
+    s2 = set(map(int, input().split()))
+    if(cmd == "intersection_update"):
+        s1.intersection_update(s2)
+    elif(cmd == "update"):
+        s1.update(s2)
+    elif(cmd == "symmetric_difference_update"):
+        s1.symmetric_difference_update(s2)
+    elif(cmd == "difference_update"):
+        s1.difference_update(s2)
+
+print(sum(s1))
+
+
+
+                      # OR
+
+
+
+m = int(input())
+A = set(map(int, input().split(" ")))
+n = int(input())
+
+for i in range(n):
+    cmd, args = input().split(" ")
+    B = set(map(int, input().split(" ")))
+    eval('A.'+cmd+'(B)')
+
+print (sum(A))
