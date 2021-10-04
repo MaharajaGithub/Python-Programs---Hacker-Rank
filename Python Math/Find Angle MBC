@@ -1,0 +1,27 @@
+# TASK :
+# You are given the lengths AB and BC.
+# Your task is to find MBC(angle 0 degrees, as shown in the figure) in degrees.
+
+# Input Format
+# The first line contains the length of side AB.
+# The second line contains the length of side BC.
+
+# Output Format
+# Output MBC in degrees.
+
+# SOLN:
+
+
+
+
+import math
+AB = int(input())
+BC = int(input())
+
+hype = math.hypot(AB,BC)                          #to calculate hypotenuse
+
+res = round(math.degrees(math.acos(BC/hype)))     #to calculate required angle 
+
+degree = chr(176)                                 #for DEGREE symbol
+
+print(res,degree,sep = '')
