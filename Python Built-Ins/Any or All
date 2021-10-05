@@ -1,0 +1,42 @@
+# any()
+# This expression returns True if any element of the iterable is true.
+# If the iterable is empty, it will return False.
+
+# all()
+# This expression returns True if all of the elements of the iterable are true. If the iterable is empty, it will return True.
+
+# TASK :
+# You are given a space separated list of integers. If all the integers are positive, then you need to check if any integer is a palindromic integer.
+
+# Input Format :
+# The first line contains an integer N. N is the total number of integers in the list.
+# The second line contains the space separated list of N integers.
+
+# Output Format
+# Print True if all the conditions of the problem statement are satisfied. Otherwise, print False.
+
+
+# SOLN 1 :
+
+N,n = int(input()),input().split()
+print (all([int(i)>0 for i in n]) and any([j == j[::-1] for j in n]))    
+
+
+
+# SOLN 2 :
+_,a=input(),input().split()
+print *all(map(lambda x: int(x)>0,a)) and any(map(lambda x: all(map(lambda y: x[y]==x[-y-1], range(len(x)/2))),a)))
+
+
+
+# SOLN 3 :
+N = int(input())
+integers = input().split()
+
+if all(int(i) >= 0 for i in integers):
+    if any(num == num[-1:] for num in integers):
+        print("True")
+    else:
+            print("False")
+else:
+    print("False")
