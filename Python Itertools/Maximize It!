@@ -1,0 +1,33 @@
+# Input Format
+# The first line contains 2 space separated integers K and M.
+# The next K lines each contains an integer Ni, denoting the number of elements in the ith list, followed by Ni space separated integers denoting the elements in the list.
+
+# Output Format
+# Output a single integer denoting the value Smax.
+
+
+# SOLN 1 :
+
+from itertools import product
+
+K,M = map(int,input().split())
+N = (list(map(int, input().split()))[1:] for _ in range(K))
+results = map(lambda x: sum(i**2 for i in x)%M, product(*N))
+print(max(results))
+
+# SOLN 2 :
+
+from itertools import product
+
+K, M = map(int,input().split())
+def Sq(n):
+    return int(n)**2
+List = []
+for i in range(K):
+    List.append(list(map(Sq,input().split()[1:])))
+Max=0    
+for T in product(*List):
+    Sum=sum(T)%M
+    if Sum>Max:   #finding maximum sum out of all tuples
+        Max=Sum
+print(Max)
