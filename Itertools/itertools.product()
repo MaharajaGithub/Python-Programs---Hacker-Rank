@@ -1,0 +1,35 @@
+#  itertools.product()
+
+# This tool computes the cartesian product of input iterables.
+# It is equivalent to nested for-loops.
+# For example, product(A, B) returns the same as ((x,y) for x in A for y in B).
+
+# TASK :
+# You are given a two lists A and B. Your task is to compute their cartesian product A * B.
+
+# Input Format
+# The first line contains the space separated elements of list A.
+# The second line contains the space separated elements of list B.
+# Both lists have no duplicate integer elements.
+
+# Output Format
+# Output the space separated tuples of the cartesian product.
+
+
+# SOLN :
+
+from itertools import product
+
+A = list(map(int,input().split()))
+B = list(map(int,input().split()))
+
+print(*product(A,B))
+
+                # OR
+
+import itertools
+
+A = [int(x) for x in input().split()]
+B = [int(y) for y in input().split()]
+
+print(*itertools.product(A, B))
