@@ -1,0 +1,33 @@
+# collections.namedtuple()
+# Basically, namedtuples are easy to create, lightweight object types.
+# They turn tuples into convenient containers for simple tasks.
+# With namedtuples, you don’t have to use integer indices for accessing members of a tuple.
+
+# TASK 
+# Dr. John Wesley has a spreadsheet containing a list of student's ID's,MARKS ,CLASS  and NAME .
+# Your task is to help Dr. Wesley calculate the average marks of the students.
+
+# Input Format
+# The first line contains an integer N, the total number of students.
+# The second line contains the names of the columns in any order.
+# The next N lines contains the Mark's,ID's,name and class, under their respective column names.
+
+# Output Format
+# Print the average marks of the list corrected to 2 decimal places.
+
+# SOLN :
+
+from collections import namedtuple
+
+TotalStudents = int(input())
+
+fields = input().split()
+
+total = 0
+
+for i in range(TotalStudents):
+    students = namedtuple('student',fields)
+    field1,field2,field3,field4 = input().split()
+    student = students(field1,field2,field3,field4)
+    total+=int(student.MARKS)
+print('{:.2f}'.format(total/TotalStudents))
