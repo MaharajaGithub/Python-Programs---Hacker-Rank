@@ -1,0 +1,27 @@
+# zip([iterable, ...])
+# This function returns a list of tuples. The th tuple contains the th element from each of the argument sequences or iterables.
+# If the argument sequences are of unequal lengths, then the returned list is truncated to the length of the shortest argument sequence.
+
+# TASK :
+# The National University conducts an examination of N students in X subjects.
+# Your task is to compute the average scores of each student.
+
+# Input Format
+# The first line contains N and X separated by a space.
+# The next X lines contains the space separated marks obtained by students in a particular subject.
+
+# Output Format
+# Print the averages of all students on separate lines.
+# The averages must be correct up to 1 decimal place.
+
+
+# SOLN :
+
+N,X = map(int,input().split())
+
+sheet = []
+for i in range(X):
+    sheet.append(map(float,input().split()))
+for j in zip(*sheet):
+    print(sum(j)/len(j))
+ 
