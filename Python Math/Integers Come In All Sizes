@@ -1,0 +1,24 @@
+# TASK
+# Read four numbers,a,b,c, and d, and print the result of a^b+c^d.
+
+# Input Format
+# Integers a,b,c, and d are given on four separate lines, respectively.
+
+
+
+# SOLN :
+
+a = int(input())
+b = int(input())
+c = int(input())
+d = int(input())
+
+e = (pow(a,b)+pow(c,d))
+print(e)
+
+                # OR
+                
+                
+a,b,c,d = int(input()),int(input()),int(input()),int(input())
+
+print((pow(a,b))+(pow(c,d)))
