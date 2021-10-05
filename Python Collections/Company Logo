@@ -1,0 +1,25 @@
+# TASK :
+
+# Print the three most common characters along with their occurrence count.
+# Sort in descending order of occurrence count.
+# If the occurrence count is the same, sort the characters in alphabetical order.
+
+# Input Format
+# A single line of input containing the string S.
+
+# Output Format
+# Print the three most common characters along with their occurrence count each on a separate line.
+# Sort output in descending order of occurrence count.
+# If the occurrence count is the same, sort the characters in alphabetical order.
+
+# SOLN :
+
+
+Dict={}
+for x in sorted(s):
+    Dict[x]=Dict.get(x,0)+1   
+#Sorting Dict by value & storing sorted keys in Dict_keys.
+Dict_keys=sorted(Dict, key=Dict.get, reverse=True)  
+
+for key in Dict_keys[:3]:
+    print(key,Dict[key])
