@@ -1,0 +1,23 @@
+# Given a list of rational numbers,find their product.
+
+# Concept
+# The reduce() function applies a function of two arguments cumulatively on a list of objects in succession from left to right to reduce it to one value. 
+# Say you have a list, say [1,2,3] and you have to find its sum.
+
+# Input Format
+# First line contains n, the number of rational numbers.
+# The ith of next n lines contain two integers each, the numerator(Ni) and denominator(Di) of the ith rational number in the list.
+
+# Output Format
+# Print only one line containing the numerator and denominator of the product of the numbers in the list in its simplest form, 
+# i.e. numerator and denominator have no common divisor other than 1.
+
+# SOLN :
+
+from fractions import Fraction
+from functools import reduce
+import operator
+
+def product(fracs):
+    t = reduce(operator.mul , fracs)
+    return t.numerator, t.denominator
