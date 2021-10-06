@@ -1,0 +1,55 @@
+# HTML
+# Hypertext Markup Language is a standard markup language used for creating World Wide Web pages.
+
+# Parsing
+# Parsing is the process of syntactic analysis of a string of symbols. It involves resolving a string into its component parts and describing their syntactic roles.
+
+# HTMLParser
+# An HTMLParser instance is fed HTML data and calls handler methods when start tags, end tags, text, comments, and other markup elements are encountered.
+
+# .handle_starttag(tag, attrs)
+# This method is called to handle the start tag of an element. (For example: <div class='marks'>)
+# The tag argument is the name of the tag converted to lowercase.
+# The attrs argument is a list of (name, value) pairs containing the attributes found inside the tag’s <> brackets.
+
+# .handle_endtag(tag)
+# This method is called to handle the end tag of an element. (For example: </div>)
+# The tag argument is the name of the tag converted to lowercase.
+
+# .handle_startendtag(tag,attrs)
+# This method is called to handle the empty tag of an element. (For example: <br />)
+# The tag argument is the name of the tag converted to lowercase.
+# The attrs argument is a list of (name, value) pairs containing the attributes found inside the tag’s <> brackets.
+
+# TASK :
+# You are given an HTML code snippet of N lines.
+# Your task is to print start tags, end tags and empty tags separately.
+
+# Input Format
+# The first line contains integer N, the number of lines in a HTML code snippet.
+# The next N lines contain HTML code.
+
+# Output Format
+# Print the HTML tags, attributes and attribute values in order of their occurrence from top to bottom in the given snippet.
+# Use proper formatting as explained in the problem statement.
+
+
+# SOLN 1 :
+
+from html.parser import HTMLParser
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):        
+        print ('Start :',tag)
+        for ele in attrs:
+            print ('->',ele[0],'>',ele[1])
+            
+    def handle_endtag(self, tag):
+        print ('End   :',tag)
+        
+    def handle_startendtag(self, tag, attrs):
+        print ('Empty :',tag)
+        for ele in attrs:
+            print ('->',ele[0],'>',ele[1])
+            
+MyParser = MyHTMLParser()
+MyParser.feed(''.join([input().strip() for _ in range(int(input()))]))
