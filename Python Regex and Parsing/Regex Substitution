@@ -1,0 +1,33 @@
+# re.sub()
+# The re.sub() tool (sub stands for substitution) evaluates a pattern and, for each valid match, it calls a method (or lambda).
+# The method is called for all matches and can be used to modify strings in different ways.
+# The re.sub() method returns the modified string as an output re.sub().
+
+# TASK :
+# You are given a text of N lines. The text contains && and || symbols.
+# Your task is to modify those symbols to the following:
+
+# Input Format
+# The first line contains the integer,N.
+# The next N lines each contain a line of the text.
+
+# Output Format
+# Output the modified text.
+
+# SOLN 1:
+
+import re
+N = int(input())
+
+for i in range(N):
+    print (re.sub(r'(?<= )(&&|\|\|)(?= )', lambda x: 'and' if x.group() == '&&' else 'or', input()))
+    
+# SOLN 2 :
+
+for _ in range(int(input())):
+    line = input()
+    
+    while ' && ' in line or ' || ' in line:
+        line = line.replace(" && ", " and ").replace(" || ", " or ")
+    
+    print(line)
