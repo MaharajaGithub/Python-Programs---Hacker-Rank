@@ -1,0 +1,52 @@
+# re.findall()
+# The expression re.findall() returns all the non-overlapping matches of patterns in a string as a list of strings.
+
+# re.finditer()
+# The expression re.finditer() returns an iterator yielding MatchObject instances over all non-overlapping matches for the re pattern in the string.
+
+# TASK :
+# You are given a string S. It consists of alphanumeric characters, spaces and symbols(+,-).
+# Your task is to find all the substrings of S that contains 2 or more vowels.
+# Also, these substrings must lie in between 2 consonants and should contain vowels only.
+
+# Input Format
+# A single line of input containing string S.
+
+# Output Format
+# Print the matched substrings in their order of occurrence on separate lines.
+# If no match is found, print -1.
+
+# SOLN 1 :
+
+import re
+v = "aeiou"
+c = "qwrtypsdfghjklzxcvbnm"
+m = re.findall(r"(?<=[%s])([%s]{2,})[%s]" % (c, v, c), input(), flags = re.I)
+print('\n'.join(m or ['-1']))
+
+# SOLN 2 :
+
+import re
+S=input()
+v='aeiou'
+pattern = re.compile('[^{0}][{0}][{0}]+[^{0}]'.format(v),re.I)
+r = pattern.search(S)
+if not r: print('-1')    
+while r:    
+    print(S[r.start()+1:r.end()-1]) #removing 1st & last consonant
+    r = pattern.search(S,r.start()+1)
+    
+# SOLN 3 :
+
+import re
+
+S = input()
+ptrn = r"[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm][AEIOUaeiou]{2,}[QWRTYPSDFGHJKLZXCVBNMqwrtypsdfghjklzxcvbnm]"
+founded_list = list(map(lambda x: x.group(1), re.finditer("(?=({}))".format(ptrn), S)))
+
+if founded_list:
+    for i in founded_list:
+        print(i[1:len(i)-1])
+else:
+    print(-1)
+    
