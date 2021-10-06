@@ -1,0 +1,27 @@
+# TASK :
+# You are given a string S consisting only of digits 0-9, commas ,, and dots .
+# Your task is to complete the regex_pattern defined below, which will be used to re.split() all of the , and . symbols in S.
+# It’s guaranteed that every comma and every dot in S is preceeded and followed by a digit.
+
+
+# SOLN 1 :
+
+import re
+print(*filter(None, re.split(r'[.,]+', input())), sep='\n')
+
+
+# SOLN 2 :
+
+import re
+s = input()
+args = re.split("[.,]",s)
+for x in args:
+    if x:
+        print (x)
+        
+# SOLN 3 :
+
+regex_pattern = r"[,.]"	# Do not delete 'r'.
+
+import re
+print("\n".join(re.split(regex_pattern, input())))
