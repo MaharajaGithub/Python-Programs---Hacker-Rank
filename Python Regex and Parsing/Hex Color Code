@@ -1,0 +1,32 @@
+# TASK :
+# CSS colors are defined using a hexadecimal (HEX) notation for the combination of Red, Green, and Blue color values (RGB).
+# You are given N lines of CSS code. Your task is to print all valid Hex Color Codes, in order of their occurrence from top to bottom.
+
+# Input Format
+# The first line contains N, the number of code lines.
+# The next N lines contains CSS Codes.
+
+# Output Format
+# Output the color codes with '#' symbols on separate lines.
+
+# SOLN :
+
+import re
+
+if __name__ == "__main__":
+    # reg = re.compile(r"(#[abcdefABCDEF1234567890]{3}|#[abcdefABCDEF1234567890]{6})")
+    # reg = re.compile(r"#[abcdefABCDEF1234567890]{3,}")
+    reg = re.compile(r"(:|,| +)(#[abcdefABCDEF1234567890]{3}|#[abcdefABCDEF1234567890]{6})\b")
+
+    n = int(input())
+    
+    for i in range(n):
+        line  = input()
+        items = reg.findall(line)
+
+        if items:
+            # print(", ".join(str(s) for s in items ))
+            # for match in items:
+            #   print(items.group())
+            for item in items:    
+                print( item[1] )
