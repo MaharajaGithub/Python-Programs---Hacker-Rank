@@ -1,0 +1,49 @@
+# TASK :
+
+# You are given two integer arrays, A and B of dimensions N X M.
+# Your task is to perform the following operations:
+
+      1.Add (A + B)
+      2.Subtract (A - B)
+      3.Multiply (A * B)
+      4.Integer Division (A / B)
+      5.Mod (A % B)
+      6.Power (A ** B)
+      
+# Input Format
+# The first line contains two space separated integers, N and M.
+# The next N lines contains M space separated integers of array A.
+# The following N lines contains M space separated integers of array B.
+
+# Output Format
+# Print the result of each operation in the given order under Task.
+
+
+# SOLN 1 :
+
+import numpy
+
+import numpy as np
+n, m = map(int, input().split())
+a, b = (np.array([input().split() for _ in range(n)], dtype=int) for _ in range(2))
+print(a+b, a-b, a*b, a//b, a%b, a**b, sep='\n')
+
+
+# SOLN 2 :
+
+import numpy as np
+n,m = map(int,input().split())
+
+a=np.zeros((n,m),int)
+b=np.zeros((n,m),int)
+for i in range(n):
+  a[i]=np.array(input().split(),int)
+for i in range(n):
+  b[i]=np.array(input().split(),int)  
+
+print(a+b)
+print(a-b)
+print(a*b)
+print(np.array(a/b,int))
+print(a%b)
+print(a**b)
