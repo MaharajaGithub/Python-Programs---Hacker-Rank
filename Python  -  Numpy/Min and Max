@@ -1,0 +1,34 @@
+# min
+# The tool min returns the minimum value along a given axis.
+
+# max
+# The tool max returns the maximum value along a given axis.
+
+# Task
+# You are given a 2-D array with dimensions N X M.
+# Your task is to perform the min function over axis 1 and then find the max of that.
+
+# Input Format
+# The first line of input contains the space separated values of N and M.
+# The next N lines contains M space separated integers.
+
+# Output Format
+# Compute the min along axis 1 and then print the max of that result.
+
+# SOLN 1 :
+
+import numpy
+arr=[]
+n,m=map(int,input().split())
+for row in range(n):
+    my_arr=list(map(int,input().split()))
+    arr.append(my_arr)
+my_array=numpy.array(arr)
+result=numpy.min(my_array, axis = 1)
+print(max(result))
+
+# SOLN 2 :
+
+import numpy as np
+
+print(np.max(np.min(np.array([input().split() for _ in range(int(input().split()[0]))],int),axis=1)))
