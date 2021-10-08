@@ -1,0 +1,37 @@
+# Shape 
+# The shape tool gives a tuple of array dimensions and can be used to change the dimensions of an array.
+
+# Reshape
+# The reshape tool gives a new shape to an array without changing its data. It creates a new array and does not modify the original array itself.
+
+# TASK :
+# You are given a space separated list of nine integers. Your task is to convert this list into a 3 X 3 NumPy array.
+
+# Input Format
+# A single line of input containing  space separated integers.
+
+# Output Format
+# Print the 3 X 3 NumPy array.
+
+
+# SOLN 1 :
+
+import numpy
+
+#my_arr = numpy.array(input().split(),int).reshape(3,3)
+#print(my_arr)
+
+
+ # SOLN 2 :
+
+def my_arr(arr):
+    return numpy.array(arr,int).reshape(3,3)
+print(my_arr(input().split()))
+
+
+# SOLN 3 :
+
+import numpy
+my_arr = numpy.array(input().split(),int)
+my_arr.shape = (3,3)
+print(my_arr)
